@@ -135,3 +135,20 @@ footer {
 @media (width < 600px) {
 
 }
+.image-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.image-row figure {
+    flex: 1;
+    max-width: 300px;
+}
+
+.image-row img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
