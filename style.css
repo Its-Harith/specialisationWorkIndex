@@ -1,27 +1,23 @@
-/*!!!!!*/
-/*add in your own font imports here*/
-/*remember to update them in the rest of the CSS : eg the body selector*/
+/* !!!!! */
+/* Font */
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-/*!!!!!*/
-/*change out, and/or add colours to the colour scheme*/
-:root{
+/* !!!!! */
+/* Colour scheme */
+:root {
     /* basic 2-bit palette from 1bit Monitor Glow Palette by Polyducks */
     /* https://lospec.com/palette-list/1bit-monitor-glow */
     --colour-1: #222323;
     --colour-2: #f0f6f0;
 }
 
-/* this swaps the colour order to account for user's OS dark mode */
-/*!!!!!*/
-/*remember to update the colours here too to reflect the above changes*/
+/* Swap colours for user's OS dark mode */
 @media (prefers-color-scheme: dark) {
-    :root{
+    :root {
         --colour-1: #f0f6f0;
         --colour-2: #222323;
     }
 }
-
 
 body {
     background-color: var(--colour-2);
@@ -40,18 +36,18 @@ header {
     margin-block-end: 3rem;
 }
 
+/* Main page layout */
 .mainNavContainer {
-    flex: 1;
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    width: 100%;
 }
 
 nav {
     display: flex;
     flex-direction: column;
     min-width: fit-content;
-    flex: 1;
     align-items: flex-end;
 }
 
@@ -59,17 +55,17 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
- section {
-    max-width: 80rch;
- }
-
-aside {
-    visibility: hidden;
     flex: 1;
 }
 
+section {
+    max-width: 80rch;
+}
+
+/* Empty spacing element is no longer needed */
+aside {
+    display: none;
+}
 
 footer {
     display: flex;
@@ -77,65 +73,60 @@ footer {
     margin-block-start: 3rem;
 }
 
-/*technique from Kevin Powell*/
-/*https://youtu.be/CU8Plk-53RU?si=zMpP0Pfbg1SaXeDB&t=255*/
-/*longer post about how this works and the * + * selector*/
-/*https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/*/
+/* Prose spacing */
 .prose > * + * {
     margin-block-start: var(--prose-flow, 1em);
 }
 
-/* breakpoints from Material Design Spec https://m3.material.io/foundations/layout/breakpoints/overview */
-/* while sometimes mobile first is recommended, as we will be focused on desktop, we will start there */
-
-/* assumed base sizing is large (1200–1599px) : desktop  */
-
-/* extra-large breakpoint : desktop, ultrawide monitors */
+/* Extra-large breakpoint */
 @media (width > 1600px) {
-
 }
 
-/* expanded breakpoint : phone or tablet in landscape, desktop */
+/* Expanded breakpoint */
 @media (width < 1200px) {
     header {
         margin-block-end: 2rem;
     }
+
     footer {
         margin-block-start: 2rem;
     }
 }
-/* medium breakpoint : tablet in portrait */
+
+/* Medium breakpoint */
 @media (width < 840px) {
     header {
         margin-block-end: 1rem;
     }
+
     .mainNavContainer {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-}
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
     nav {
-        flex: 0;
         width: 100%;
         max-width: 80rch;
         justify-content: space-between;
         flex-direction: row;
     }
+
     main {
         flex: 1;
+        width: 100%;
     }
-    aside {
-    display: none;
-}
+
     footer {
         margin-block-start: 1rem;
     }
 }
-/* compact breakpoint : phone in portrait */
-@media (width < 600px) {
 
+/* Compact breakpoint */
+@media (width < 600px) {
 }
+
+/* Image rows */
 .image-row {
     display: flex;
     gap: 1rem;
