@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harry - Assignment 3</title>
+<meta name="viewport"
+content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>Harry</title>
 
 <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
 
@@ -13,85 +16,87 @@
 <body>
 
 <header>
-<h1>Assignment 3: Bloom</h1>
+<h1>Harry's Interface Design and Development Work</h1>
 </header>
 
 <div class="mainNavContainer">
 
 <nav>
-<a href="./index.html">Home</a>
 <a href="./assignment1.html">System Design Document</a>
-<a href="https://au.miro.com/app/board/u3jVOf5GcrQ=/?share_link_id=15227673413" target="_blank">Community of Practice</a>
+<a href="https://au.miro.com/app/board/u3jVOf5GcrQ=/?share_link_id=15227673413" target="_blank">
+        Community of Practice
+</a>
 <a href="./assignment2.html">Assignment 2</a>
-<a href="./assignment3.html">Assignment 3</a>
 </nav>
 
 <main>
 
-<section id="intro-section">
-<h2>The instrument</h2>
-<p>Bloom is a browser-based instrument for the Sonic Timer scenario. Instead of a
-numerical countdown, a lotus pond grows while you focus and the sound builds into a
-harmony. During the break, the pond becomes playable.</p>
-<p><a href="./bloom/index.html" target="_blank">Open Bloom</a></p>
+<p>Welcome to my Digital Media Specialisation work index. This website documents my projects,
+design process, and community contributions.</p>
+
+<section id="synopsis">
+<h2>Assignment 3: Bloom, the final instrument</h2>
+
+<h3>Synopsis</h3>
+<p>Bloom is a browser-based audio instrument that replaces a countdown timer with a lotus pond.
+While you study, lotuses grow and open on the water and each one adds a note to a slowly building
+harmony. When the break starts, the same lotuses become playable: pressing one sends ripples
+across the water that make the other lotuses chime. It is built with plain HTML, CSS and
+JavaScript, and uses the Web Audio API directly with no audio library.</p>
+<p><a href="https://its-harith.github.io/audioInstrument-thursday/" target="_blank" rel="noopener">Open Bloom</a>
+(press Start session first; browsers only allow sound after a click).</p>
 </section>
 
-<section>
-<h2>Starting point</h2>
-<p>In Assignment 2 I tested several prototypes with users and chose to continue the one where
-notes keep arriving and build into a harmony as the session goes on. My teacher's feedback was that the
-project should feel more like an instrument, so for this final version I focused on making
-the study phase more expressive and the break phase properly playable.
-</p>
+<section id="scenario">
+<h3>Design scenario: Sonic Timer</h3>
+<p>The scenario asks for a timer that uses an evolving soundscape instead of a numerical countdown
+to show a focus session passing, with the soundscape building as the session goes on and
+changing to signal a break. [Replace with the official scenario wording from the class page if
+you want the exact text.]</p>
 </section>
 
-<section>
-<h2>Showing time through sound and growth</h2>
-<p>Instead of a countdown, time is shown by a lotus pond. Lotuses appear and slowly open, and
-each one adds a note to a sustained harmony. A filter on the sound gradually opens over the
-session, so the music brightens as the session nears its end. A sun crosses the sky and sets
-into the water as the break begins, so progress can be read at a glance without numbers.</p>
-</section>
-
-<section>
-<h2>Making the break an instrument</h2>
-<p>During the break, pressing a lotus sends waves across the water. When a wave reaches
-another lotus, that lotus chimes. Chimes get quieter the further the wave has travelled, so the
-pond plays a layered, gentle piece of music. Notes come from a pentatonic scale so any combination
-sounds pleasant together. A moon crosses the sky during the break and sets as it ends, giving the
-break its own progress cue.</p>
-</section>
-
-<section>
-<h2>Personalisation</h2>
-<p>Users can set their own study and break times, with Pomodoro (25/5) selected by default.
-A Bright or Mellow mood changes the scale, the sound and the colour palette. A Day or Night
-choice changes the scene: butterflies and sunshine by day, a moon, fireflies and crickets by night.</p>
-</section>
-
-<section>
-<h2>Design decisions and changes</h2>
+<section id="response">
+<h3>How Bloom responds to the scenario</h3>
 <ul>
-<li>The status text sits in a caption bar so it feels part of the interface.</li>
-<li>All water ripples share one style, and the birth ripple starts from the centre of each lily pad.</li>
-<li>I lowered the volume and pitch of the crickets after finding them annoying.</li>
+<li><strong>Time you can hear:</strong> each new lotus adds a sustained note, so progress is heard as a harmony growing and the music brightens as the session nears its end. You can keep track of time without looking at the screen.</li>
+<li><strong>Time you can see, without numbers:</strong> lotuses open over the session, and a sun (day) or moon (night) crosses the sky as a progress cue. During the break, the moon or sun rises and sets as the break runs out.</li>
+<li><strong>A clear transition to rest:</strong> when the study phase ends the sustained notes fade out and the same lotuses become an instrument to play, so the break feels different from the work.</li>
+<li><strong>Low pressure for the person:</strong> all notes come from a pentatonic scale, so any lotus can be played in any order and still sound pleasant, with no musical skill needed.</li>
 </ul>
 </section>
 
-<section>
-<h2>Accessibility and responsiveness</h2>
-<p>The layout has four breakpoints, visible focus outlines on controls, and it respects
-reduced-motion settings.</p>
+<section id="features">
+<h3>Core interactive features</h3>
+<ul>
+<li><strong>Timer settings:</strong> three presets (Pomodoro 25/5 by default, Long focus 50/10, Quick demo 15/15 seconds) or custom study and break times.</li>
+<li><strong>Growing harmony (study):</strong> lotuses appear over the session. Each adds a sustained note from the scale, built from layered oscillators.</li>
+<li><strong>Playable pond (break):</strong> pressing a lotus plays its note and sends a ripple. When the ripple reaches another lotus, that lotus chimes, quieter the further the ripple has travelled. Lotuses can also be reached and played with the keyboard.</li>
+<li><strong>Mood (Bright or Mellow):</strong> changes the scale (major or minor pentatonic), the sound and the colour palette, so the mood changes during study as well as in the break.</li>
+<li><strong>Time of day (Day or Night):</strong> by day there is sunshine and butterflies; by night there is a moon, stars, fireflies and quiet crickets.</li>
+</ul>
+
+<h3>Extended technique: a filter that opens over the session</h3>
+<p>The harmony is passed through a low-pass filter whose cutoff slowly opens across the whole study
+phase (from about 700 Hz to 3400 Hz in Bright, and a darker 250 Hz to 900 Hz in Mellow). A slow
+oscillator makes the filter breathe a little, and a generated reverb gives the sound space. The
+result is that the same notes sound muffled and distant at the start and clearer and brighter
+near the end, so the person can hear how far through the session they are, not just that
+more notes have arrived. [Check this is the technique you want to name as your extended technique.]</p>
 </section>
 
-<section>
-<h2>Limitations</h2>
-<p>I tested the visuals in Chromium and have not tested every browser. Audio only starts after
-a click because of browser rules. </p>
+<section id="design-system">
+<h3>Design system</h3>
+<ul>
+<li><strong>Colour:</strong> a set of design tokens (CSS custom properties) controls water, sky, pads and accent colours. Bright uses turquoise water and a golden sun; Mellow switches the tokens to soft blue and lavender. Night darkens the sky and adds a plum tint to the water.</li>
+<li><strong>Typography and layout:</strong> a single clear sans-serif font, a centred setup panel with grouped options, and a caption bar at the bottom that names the phase (Study or Break) and gives a short instruction.</li>
+<li><strong>Motion:</strong> slow, calm movement (drifting water, opening petals, one shared ripple style for every wave). Visitors who prefer reduced motion get calmer animation.</li>
+<li><strong>Responsive design:</strong> sizes are set from variables so four breakpoints only change a few values: medium (under 840px), expanded (840 to 1199px), large (1200 to 1600px) and extra-large (over 1600px).</li>
+<li><strong>Accessibility:</strong> visible keyboard focus on every control, keyboard-playable lotuses, and a live-region caption so screen readers hear phase changes. Sound never carries the only information, because the visuals show time too.</li>
+</ul>
 </section>
 
-<section>
-<h2>Git commit log</h2>
+<section id="commit-logs">
+<h3>Git commit logs</h3>
 <details>
   <summary>Commit logs</summary>
   <table>
@@ -183,6 +188,18 @@ a click because of browser rules. </p>
   </table>
 </details>
 </section>
+
+<section id="peer-testing">
+<h3>User testing</h3>
+<p>Peer user testing helped me choose the layout and the overall design and technicality of the Bloom project, helped with choosing the way flowers bloom and how the time is being shown.</p>
+</section>
+
+</main>
+
+<!-- this is an empty element which helps with spacing -->
+<aside></aside>
+
+</div>
 
 <section>
 <h2>AI acknowledgement</h2>
