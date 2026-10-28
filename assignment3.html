@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harry - Assignment 3</title>
+
 <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
+
 <link rel="stylesheet" href="reset.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -35,35 +37,156 @@ harmony. During the break, the pond becomes playable.</p>
 </section>
 
 <section>
+<h2>Starting point</h2>
+<p>In Assignment 2 I tested several prototypes with users and chose to continue the one where
+notes keep arriving and build into a harmony as the session goes on. My teacher's feedback was that the
+project should feel more like an instrument, so for this final version I focused on making
+the study phase more expressive and the break phase properly playable.
+</p>
+</section>
+
+<section>
 <h2>Showing time through sound and growth</h2>
-<p>Lotuses appear and slowly open, and each one adds a note to a sustained harmony. A sun
-crosses the sky and sets into the water as the break begins, so progress can be read at a
-glance without numbers.</p>
+<p>Instead of a countdown, time is shown by a lotus pond. Lotuses appear and slowly open, and
+each one adds a note to a sustained harmony. A filter on the sound gradually opens over the
+session, so the music brightens as the session nears its end. A sun crosses the sky and sets
+into the water as the break begins, so progress can be read at a glance without numbers.</p>
 </section>
 
 <section>
 <h2>Making the break an instrument</h2>
 <p>During the break, pressing a lotus sends waves across the water. When a wave reaches
-another lotus, that lotus chimes, quieter the further the wave has travelled. A moon crosses
-the sky during the break and sets as it ends.</p>
+another lotus, that lotus chimes. Chimes get quieter the further the wave has travelled, so the
+pond plays a layered, gentle piece of music. Notes come from a pentatonic scale so any combination
+sounds pleasant together. A moon crosses the sky during the break and sets as it ends, giving the
+break its own progress cue.</p>
 </section>
 
 <section>
 <h2>Personalisation</h2>
 <p>Users can set their own study and break times, with Pomodoro (25/5) selected by default.
-A Bright or Mellow mood changes the scale, sound and colours. A Day or Night choice adds
-butterflies by day, and a moon, fireflies and crickets by night.</p>
+A Bright or Mellow mood changes the scale, the sound and the colour palette. A Day or Night
+choice changes the scene: butterflies and sunshine by day, a moon, fireflies and crickets by night.</p>
+</section>
+
+<section>
+<h2>Design decisions and changes</h2>
+<ul>
+<li>The status text sits in a caption bar so it feels part of the interface.</li>
+<li>All water ripples share one style, and the birth ripple starts from the centre of each lily pad.</li>
+<li>I lowered the volume and pitch of the crickets after finding them annoying.</li>
+</ul>
+</section>
+
+<section>
+<h2>Accessibility and responsiveness</h2>
+<p>The layout has four breakpoints, visible focus outlines on controls, and it respects
+reduced-motion settings.</p>
+</section>
+
+<section>
+<h2>Limitations</h2>
+<p>I tested the visuals in Chromium and have not tested every browser. Audio only starts after
+a click because of browser rules. </p>
 </section>
 
 <section>
 <h2>Git commit log</h2>
-<p>[Add your commit log link here.]</p>
+<details>
+  <summary>Commit logs</summary>
+  <table>
+    <thead><tr>
+        <th>Author</th>
+        <th>Date</th>
+        <th>Subject</th>
+        <th>Body</th>
+    </tr></thead>
+    <tbody>
+
+      <tr>
+        <td>Harry</td>
+        <td>Thu Oct 22 11:06:16 2026 +1100</td>
+        <td>Merge branch 'prototype-5-bloom'</td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Harry</td>
+        <td>Thu Oct 22 11:14:07 2026 +1100</td>
+        <td>merged prototype 5 into he main</td>
+        <td>i also moved js and css into their own folders</td>
+      </tr>
+
+      <tr>
+        <td>Harry</td>
+        <td>Mon Oct 26 20:22:47 2026 +1100</td>
+        <td>Add Bloom page structure with Pomodoro start screen</td>
+        <td>Semantic HTML for the Bloom instrument. A start panel lets the user pick a preset (Pomodoro 25/5 is selected by default, plus Long focus and a Quick demo) or type their own study and break times. Includes the sky, pond and water layers and an aria-live status line so screen readers hear phase changes</td>
+      </tr>
+
+      <tr>
+        <td>Harry</td>
+        <td>Mon Oct 26 20:25:15 2026 +1100</td>
+        <td>Add Bloom styling: water, sky, lotus and responsive breakpoints</td>
+        <td>Design tokens for colour and size. Turquoise water with soft streaks of light, a sky band that turns from day blue to sunset, the sun reflection and horizon haze, layered lotus petals with a reflection, one shared ripple style, and breakpoints for medium (under 840px), expanded, large and extra-large screens. Reduced-motion users get calmer animation.</td>
+      </tr>
+
+      <tr>
+        <td>Harry</td>
+        <td>Tue Oct 27 19:56:52 2026 +1100</td>
+        <td>Update, new visuals, sound and ripples</td>
+        <td>Added the lotus pond with water and a sun that crosses the sky. Improved the harmony sound with reverb. Tapping a lotus now sends ripples that chime the others. Redesigned the lotus and replaced the floating text with a caption bar</td>
+      </tr>
+
+      <tr>
+        <td>Harry</td>
+        <td>Wed Oct 28 14:52:23 2026 +1100</td>
+        <td>added more options in the home page</td>
+        <td>added two moods, bright and mellow, edited the css and html</td>
+      </tr>
+
+      <tr>
+        <td>Harry</td>
+        <td>Wed Oct 28 15:11:48 2026 +1100</td>
+        <td>added the js for the mood change</td>
+        <td>tried the mood changing during break time and how the sound changed</td>
+      </tr>
+
+      <tr>
+        <td>Harry</td>
+        <td>Wed Oct 28 15:12:55 2026 +1100</td>
+        <td>added night and day mode</td>
+        <td>added extra options in the homescreen, for night and day more</td>
+      </tr>
+
+      <tr>
+        <td>Harry</td>
+        <td>Wed Oct 28 15:17:05 2026 +1100</td>
+        <td>added the js for the night and day modes</td>
+        <td>added some butterflies in the day mode and some fireflies during night mode</td>
+      </tr>
+
+      <tr>
+        <td>Harry</td>
+        <td>Wed Oct 28 15:21:40 2026 +1100</td>
+        <td>fixed the criquets sound in night mode</td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Harry</td>
+        <td>Wed Oct 28 21:20:41 2026 +1100</td>
+        <td>Update commit log</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</details>
 </section>
 
 <section>
 <h2>AI acknowledgement</h2>
-<p>I used AI to help me refine this project. I used it to debug code and help with . I reviewed and tested the output and chose which changes to keep.
-</p>
+<p>I used AI to help me refine this project. I wrote the base code myself and used AI to refine it and make my code more complex, and fix any typos and grammar issues</p>
 </section>
 
 </main>
