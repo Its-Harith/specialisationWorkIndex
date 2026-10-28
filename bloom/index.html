@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bloom: a lotus pond that grows with your focus</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <!-- Decorative water background (animated in CSS) -->
+  <div id="water" aria-hidden="true"></div>
+
+  <!-- Sky band along the top. The sun crosses it during the study phase and
+       sets behind the water line when the break begins; then the moon crosses
+       it during the break and sets as the break ends. -->
+  <div id="sky" aria-hidden="true">
+    <div id="sun"></div>
+    <div id="moon"></div> <!-- crosses the sky during the break -->
+    <div id="haze"></div> <!-- soft mist at the horizon so sky and water blend -->
+  </div>
+
+  <!-- The water surface: horizon haze, the sun's reflection, and the
+       wave rings drawn by JS. Clipped at the horizon so rings never
+       spill into the sky. -->
+  <div id="pond" aria-hidden="true">
+    <div id="sheen"></div>
+    <canvas id="glitter"></canvas>
+  </div>
+
+  <!-- Butterflies (day) and fireflies (night), drawn by JS -->
+  <canvas id="creatures" aria-hidden="true"></canvas>
+
+  <!-- Caption bar: a label (Study / Break) plus a short message.
+       aria-live so screen readers announce the phase changes -->
+  <p id="status" aria-live="polite"><span class="tag">Ready</span><span class="msg">Set your session, then press start</span></p>
+
+  <!-- Setup screen: Pomodoro (25 / 5) is selected by default -->
+  <main id="setup">
+    <h1>Bloom</h1>
+    <p class="intro">A lotus pond that grows while you focus. Listen to the harmony build, then play the pond during your break.</p>
+
+    <form id="settings">
+      <p class="group-label" id="timerLabel">Timer</p>
+      <div class="presets" role="group" aria-labelledby="timerLabel">
+        <button type="button" class="preset" data-preset="pomodoro" aria-pressed="true">Pomodoro <span>25 / 5 min</span></button>
+        <button type="button" class="preset" data-preset="long" aria-pressed="false">Long focus <span>50 / 10 min</span></button>
+        <button type="button" class="preset" data-preset="demo" aria-pressed="false">Quick demo <span>15 / 15 sec</span></button>
+      </div>
+
+      <p class="group-label" id="timeLabel">Time of day</p>
+      <div class="times" role="group" aria-labelledby="timeLabel">
+        <button type="button" class="preset" data-time="day" aria-pressed="true">Day <span>sunshine and butterflies</span></button>
+        <button type="button" class="preset" data-time="night" aria-pressed="false">Night <span>moon, crickets and fireflies</span></button>
+      </div>
+
+      <p class="group-label" id="moodLabel">Mood</p>
+      <div class="moods" role="group" aria-labelledby="moodLabel">
+        <button type="button" class="preset" data-mood="bright" aria-pressed="true">Bright <span>lively and clear</span></button>
+        <button type="button" class="preset" data-mood="mellow" aria-pressed="false">Mellow <span>soft and warm</span></button>
+      </div>
+
+      <div class="fields">
+        <label for="studyMinutes">Study time (minutes)
+          <input id="studyMinutes" type="number" min="0.25" max="180" step="any" value="25" required>
+        </label>
+        <label for="breakMinutes">Break time (minutes)
+          <input id="breakMinutes" type="number" min="0.25" max="60" step="any" value="5" required>
+        </label>
+      </div>
+
+      <button id="start" type="submit">Start session</button>
+    </form>
+  </main>
+
+  <!-- Shown when the break finishes -->
+  <button id="again" type="button" hidden>New session</button>
+
+</body>
+</html>
